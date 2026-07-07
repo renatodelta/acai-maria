@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Açaí Top - Monte seu açaí do seu jeito com entrega rápida em sua casa. Peça online pelo WhatsApp.">
+    <title>Açaí Top - Cardápio & Delivery</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Top Alert Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <span class="status-badge open"><i data-lucide="clock" class="icon-sm"></i> Aberto Agora • Entrega de 30 a 50 min</span>
+            <span class="delivery-notice"><i data-lucide="truck" class="icon-sm"></i> Peça pelo site e receba via WhatsApp</span>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <span class="logo-accent">Açaí</span> Top
+            </a>
+            
+            <nav class="nav-desktop">
+                <a href="#menu-section" class="nav-link active">Cardápio</a>
+                <a href="#custom-section" class="nav-link">Monte seu Açaí</a>
+                <a href="#sobre-section" class="nav-link">Como Funciona</a>
+            </nav>
+
+            <div class="header-actions">
+                <button id="cart-toggle-btn" class="cart-btn" aria-label="Abrir Carrinho">
+                    <i data-lucide="shopping-bag"></i>
+                    <span class="cart-badge" id="cart-count">0</span>
+                    <span class="cart-btn-label">Meu Carrinho</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <span class="hero-tagline">O Açaí mais cremoso da cidade</span>
+                <h1>Monte seu Açaí ou escolha um de nossos combinados especiais!</h1>
+                <p>Ingredientes frescos, cremes premium selecionados e entrega rápida direto na sua porta.</p>
+                <div class="hero-buttons">
+                    <a href="#custom-section" class="btn btn-primary btn-lg"><i data-lucide="sparkles"></i> Monte seu Açaí</a>
+                    <a href="#menu-section" class="btn btn-outline btn-lg"><i data-lucide="book-open"></i> Ver Cardápio</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <main class="container main-content">
+        <!-- Category Selector -->
+        <section class="categories-bar" id="menu-section">
+            <h2 class="section-title">Nosso Cardápio</h2>
+            <div class="category-tabs">
+                <button class="category-tab active" data-category="custom"><i data-lucide="sparkles"></i> Monte seu Açaí</button>
+                <button class="category-tab" data-category="combos"><i data-lucide="heart"></i> Combinados Especiais</button>
+                <button class="category-tab" data-category="bebidas"><i data-lucide="cup-soda"></i> Bebidas</button>
+            </div>
+        </section>
+
+        <!-- Dynamic Content Section -->
+        <section class="menu-display">
+            <!-- 1. MONTE SEU AÇAÍ BUILDER -->
+            <div id="builder-container" class="menu-tab-content active">
+                <div class="builder-card" id="custom-section">
+                    <div class="builder-header">
+                        <div class="builder-title-info">
+                            <span class="builder-badge">Personalizado</span>
+                            <h3>Crie sua combinação perfeita</h3>
+                            <p>Escolha o tamanho, cremes e todos os acompanhamentos adicionais.</p>
+                        </div>
+                        <div class="builder-steps-indicator">
+                            Passo <span id="current-step-num">1</span> de 4
+                        </div>
+                    </div>
+                    
+                    <!-- Steps Progress Bar -->
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill" id="builder-progress" style="width: 25%;"></div>
+                    </div>
+
+                    <!-- Builder Steps -->
+                    <div class="builder-body">
+                        <!-- STEP 1: TAMANHO -->
+                        <div class="builder-step active" data-step="1">
+                            <h4 class="step-title">1. Escolha o Tamanho do seu Açaí</h4>
+                            <p class="step-subtitle">Cada tamanho inclui uma quantidade de acompanhamentos gratuitos.</p>
+                            
+                            <div class="grid-sizes" id="sizes-options">
+                                <!-- Dynamic Sizes -->
+                            </div>
+                        </div>
+
+                        <!-- STEP 2: CREMES E BASES -->
+                        <div class="builder-step" data-step="2">
+                            <h4 class="step-title">2. Escolha os Cremes e Bases (Máx. 2)</h4>
+                            <p class="step-subtitle">Misture até dois cremes deliciosos para a base do seu copo.</p>
+                            
+                            <div class="grid-bases" id="bases-options">
+                                <!-- Dynamic Bases -->
+                            </div>
+                        </div>
+
+                        <!-- STEP 3: ACOMPANHAMENTOS GRATUITOS -->
+                        <div class="builder-step" data-step="3">
+                            <div class="step-header-sticky">
+                                <h4 class="step-title">3. Acompanhamentos Gratuitos</h4>
+                                <p class="step-subtitle">Você pode escolher até <strong id="free-toppings-limit">0</strong> acompanhamentos grátis para este tamanho.</p>
+                                <div class="limit-counter-bar">
+                                    Selecionados: <span id="free-toppings-counter">0</span> / <span id="free-toppings-limit-badge">0</span>
+                                </div>
+                            </div>
+                            
+                            <div class="grid-checkboxes" id="free-toppings-options">
+                                <!-- Dynamic Free Toppings -->
+                            </div>
+                        </div>
+
+                        <!-- STEP 4: ADICIONAIS PREMIUM -->
+                        <div class="builder-step" data-step="4">
+                            <h4 class="step-title">4. Adicionais Premium (Opcional)</h4>
+                            <p class="step-subtitle">Adicione itens especiais por um valor adicional para deixar seu açaí irresistível.</p>
+                            
+                            <div class="grid-premium" id="premium-toppings-options">
+                                <!-- Dynamic Premium Toppings -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Builder Footer Controls -->
+                    <div class="builder-footer">
+                        <div class="builder-price-preview">
+                            <span class="price-label">Preço Total Estimado</span>
+                            <span class="price-val" id="builder-total-price">R$ 0,00</span>
+                        </div>
+                        <div class="builder-nav-btns">
+                            <button class="btn btn-outline" id="prev-step-btn" disabled><i data-lucide="chevron-left"></i> Voltar</button>
+                            <button class="btn btn-primary" id="next-step-btn">Avançar <i data-lucide="chevron-right"></i></button>
+                            <button class="btn btn-success hidden" id="add-custom-to-cart-btn"><i data-lucide="plus-circle"></i> Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. COMBOS / COPOS PRONTOS -->
+            <div id="combos-container" class="menu-tab-content">
+                <div class="products-grid" id="combos-grid">
+                    <!-- Dynamic Pre-made combinations -->
+                </div>
+            </div>
+
+            <!-- 3. BEBIDAS -->
+            <div id="bebidas-container" class="menu-tab-content">
+                <div class="products-grid" id="drinks-grid">
+                    <!-- Dynamic Drinks -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Como Funciona Section -->
+        <section class="how-it-works" id="sobre-section">
+            <h2 class="section-title text-center">Como Funciona o Seu Pedido?</h2>
+            <div class="steps-grid">
+                <div class="step-item">
+                    <div class="step-icon-wrapper">
+                        <i data-lucide="sparkles"></i>
+                    </div>
+                    <h3>1. Monte ou Escolha</h3>
+                    <p>Crie um açaí personalizado do seu jeito ou escolha um dos nossos combinados prontos.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-icon-wrapper">
+                        <i data-lucide="shopping-cart"></i>
+                    </div>
+                    <h3>2. Revise no Carrinho</h3>
+                    <p>Confira seus itens, defina se deseja retirar ou receber em casa e adicione os dados de entrega.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-icon-wrapper">
+                        <i data-lucide="phone"></i>
+                    </div>
+                    <h3>3. Envie para o WhatsApp</h3>
+                    <p>O site gera a mensagem pronta formatada. Você só precisa clicar e enviar para confirmar seu pedido!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Cart Sidebar / Drawer -->
+    <div class="cart-drawer-overlay" id="cart-overlay"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-drawer-header">
+            <h3><i data-lucide="shopping-bag"></i> Meu Pedido</h3>
+            <button class="close-cart-btn" id="close-cart-btn" aria-label="Fechar Carrinho">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+
+        <div class="cart-drawer-body">
+            <!-- Empty Cart State -->
+            <div class="empty-cart-state" id="empty-cart">
+                <div class="empty-icon"><i data-lucide="shopping-cart"></i></div>
+                <p>Seu carrinho está vazio.</p>
+                <p class="empty-sub">Adicione um açaí delicioso para começar!</p>
+                <button class="btn btn-primary" id="start-shopping-btn">Ver Cardápio</button>
+            </div>
+
+            <!-- Cart Items List -->
+            <div class="cart-items-container" id="cart-items-list">
+                <!-- Dynamic Cart Items -->
+            </div>
+
+            <!-- Checkout Form Section -->
+            <div class="checkout-form-container hidden" id="checkout-form-section">
+                <h4 class="checkout-section-title"><i data-lucide="user"></i> Informações do Pedido</h4>
+                
+                <form id="checkout-form">
+                    <div class="form-group">
+                        <label for="customer-name">Seu Nome *</label>
+                        <input type="text" id="customer-name" placeholder="Ex: Maria Silva" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="customer-phone">Telefone / WhatsApp *</label>
+                        <input type="tel" id="customer-phone" placeholder="Ex: (11) 99999-9999" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Método de Entrega *</label>
+                        <div class="radio-group-delivery">
+                            <label class="radio-card active">
+                                <input type="radio" name="delivery-method" value="delivery" checked>
+                                <span class="radio-content">
+                                    <i data-lucide="truck"></i>
+                                    <span>Entrega</span>
+                                </span>
+                            </label>
+                            <label class="radio-card">
+                                <input type="radio" name="delivery-method" value="pickup">
+                                <span class="radio-content">
+                                    <i data-lucide="store"></i>
+                                    <span>Retirar</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Delivery Fields (Dynamic Show/Hide) -->
+                    <div id="delivery-fields">
+                        <div class="form-group">
+                            <label for="customer-neighborhood">Bairro *</label>
+                            <select id="customer-neighborhood" required>
+                                <option value="" disabled selected>Selecione seu bairro...</option>
+                                <!-- Dynamic Neighborhood Options -->
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group flex-3">
+                                <label for="customer-address">Rua / Logradouro *</label>
+                                <input type="text" id="customer-address" placeholder="Ex: Av. Brasil">
+                            </div>
+                            <div class="form-group flex-1">
+                                <label for="customer-address-number">Nº *</label>
+                                <input type="text" id="customer-address-number" placeholder="123">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="customer-reference">Ponto de Referência</label>
+                            <input type="text" id="customer-reference" placeholder="Ex: Próximo à padaria">
+                        </div>
+                    </div>
+
+                    <h4 class="checkout-section-title"><i data-lucide="credit-card"></i> Pagamento</h4>
+
+                    <div class="form-group">
+                        <label for="payment-method">Forma de Pagamento *</label>
+                        <select id="payment-method" required>
+                            <option value="" disabled selected>Escolha o pagamento...</option>
+                            <option value="pix">Pix (Envio de comprovante)</option>
+                            <option value="cartao_credito">Cartão de Crédito (Na entrega)</option>
+                            <option value="cartao_debito">Cartão de Débito (Na entrega)</option>
+                            <option value="dinheiro">Dinheiro</option>
+                        </select>
+                    </div>
+
+                    <!-- Change Field (Dynamic Show/Hide) -->
+                    <div class="form-group hidden" id="change-field">
+                        <label for="cash-change">Precisa de troco para quanto?</label>
+                        <input type="number" id="cash-change" placeholder="Ex: R$ 50,00" step="0.01">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Cart Drawer Footer -->
+        <div class="cart-drawer-footer" id="cart-footer">
+            <div class="totals-section">
+                <div class="totals-row">
+                    <span>Subtotal:</span>
+                    <span id="cart-subtotal">R$ 0,00</span>
+                </div>
+                <div class="totals-row" id="delivery-fee-row">
+                    <span>Taxa de Entrega:</span>
+                    <span id="cart-delivery-fee">R$ 0,00</span>
+                </div>
+                <div class="totals-row total-highlight">
+                    <span>Total do Pedido:</span>
+                    <span id="cart-total">R$ 0,00</span>
+                </div>
+            </div>
+            
+            <div class="cart-action-buttons">
+                <!-- Step 1 action: Proceed to delivery information -->
+                <button class="btn btn-primary btn-block btn-lg" id="proceed-to-checkout-btn">
+                    <span>Avançar para Entrega</span> <i data-lucide="arrow-right"></i>
+                </button>
+                <!-- Step 2 action: Send to whatsapp -->
+                <button class="btn btn-success btn-block btn-lg hidden" id="submit-order-btn">
+                    <i data-lucide="phone"></i> <span>Enviar Pedido via WhatsApp</span>
+                </button>
+                <!-- Back buttons for checkout flow -->
+                <button class="btn btn-text btn-block hidden" id="back-to-cart-btn">
+                    <i data-lucide="arrow-left"></i> Voltar para os itens
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Cart Button (Visible on scroll / mobile when drawer is closed) -->
+    <div class="floating-cart-btn" id="floating-cart-btn">
+        <i data-lucide="shopping-cart"></i>
+        <span class="floating-badge" id="floating-cart-count">0</span>
+    </div>
+
+    <!-- Toast Notification for Add to Cart -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
