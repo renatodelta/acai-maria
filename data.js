@@ -1,10 +1,10 @@
 const MENU_DATA = {
   // Tamanhos e limites de acompanhamentos gratuitos
   sizes: [
-    { id: '300ml', name: 'Copo 300ml', price: 15.00, maxFreeToppings: 3, image: 'https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?w=500&auto=format&fit=crop&q=60' },
-    { id: '500ml', name: 'Copo 500ml', price: 22.00, maxFreeToppings: 4, image: 'https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?w=500&auto=format&fit=crop&q=60' },
-    { id: '700ml', name: 'Tigela 700ml', price: 28.00, maxFreeToppings: 5, image: 'https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?w=500&auto=format&fit=crop&q=60' },
-    { id: '1l', name: 'Tigela 1 Litro', price: 38.00, maxFreeToppings: 6, image: 'https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?w=500&auto=format&fit=crop&q=60' }
+    { id: '300ml', name: 'Copo 300ml', price: 15.00, maxFreeToppings: 3, image: 'assets/acai-5.png' },
+    { id: '500ml', name: 'Copo 500ml', price: 22.00, maxFreeToppings: 4, image: 'assets/acai-5.png' },
+    { id: '700ml', name: 'Tigela 700ml', price: 28.00, maxFreeToppings: 5, image: 'assets/acai-5.png' },
+    { id: '1l', name: 'Tigela 1 Litro', price: 38.00, maxFreeToppings: 6, image: 'assets/acai-5.png' }
   ],
 
   // Cremes e Bases
@@ -58,7 +58,7 @@ const MENU_DATA = {
         { size: '500ml', price: 25.00 },
         { size: '700ml', price: 32.00 }
       ],
-      image: 'https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?w=500&auto=format&fit=crop&q=60'
+      image: 'assets/acai-1.png'
     },
     {
       id: 'combo_ninhotella',
@@ -70,19 +70,19 @@ const MENU_DATA = {
         { size: '500ml', price: 30.00 },
         { size: '700ml', price: 37.00 }
       ],
-      image: 'https://images.unsplash.com/photo-1589733901241-5d55cd27f094?w=500&auto=format&fit=crop&q=60'
+      image: 'assets/acai-2.png'
     },
     {
       id: 'combo_sensacao',
-      name: 'Açaí Sensação',
-      description: 'Creme de Açaí mesclado com Creme de Morango, morangos frescos fatiados, raspas de chocolate ao leite e calda trufada.',
+      name: 'Açaí Divertido (M&Ms)',
+      description: 'Açaí tradicional montado em camadas com rodelas de banana e muitos confetes coloridos M&Ms por cima.',
       category: 'combos',
       options: [
         { size: '300ml', price: 20.00 },
         { size: '500ml', price: 28.00 },
         { size: '700ml', price: 35.00 }
       ],
-      image: 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=500&auto=format&fit=crop&q=60'
+      image: 'assets/acai-4.png'
     },
     {
       id: 'combo_energia',
@@ -94,7 +94,7 @@ const MENU_DATA = {
         { size: '500ml', price: 26.00 },
         { size: '700ml', price: 33.00 }
       ],
-      image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&auto=format&fit=crop&q=60'
+      image: 'assets/acai-3.png'
     }
   ],
 
